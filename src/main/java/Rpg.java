@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Rpg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcao, imunidade = 100,totalDado = 0;;
-        String nome, respostaString,gameOver = "n";
+        int opcao, imunidade = 100,totalDado = 0, totalDado2= 0;
+        String nome,gameOver = "n";
         char respostaChar;
         
         
@@ -26,6 +26,7 @@ public class Rpg {
 		System.out.println("\n\t===========================");
 		System.out.println("\t  |     1 - Jogar        |");
 		System.out.println("\t  |     2 - Sair         |");
+                System.out.print("\n\t Opcão desejada: ");
                 
                 opcao = sc.nextInt();
 		switch (opcao) {
@@ -35,29 +36,38 @@ public class Rpg {
                     System.out.println(" \n\t   Nesse jogo você terá a missão de ir ao mercado"
                     + "\n\tfazer compras e voltar pra casa sem contrair o Corona Vírus,\n\t"
                     + "no caminho de sua casa até o mercado e a volta,\n\t"
-                    + "irão ter alguns desafios, você iniciara com 100 de imunidade,\n\t"
+                    + "irão ter alguns desafios envolvendo a matéria Matemática para Tecnologia da informação \n\t"
+                    + " e alguns envolvento a sorte, você iniciara com 100 de imunidade,\n\t"
                     + "a cada desafio perdido você perderá imunidade,\n\t"
                     + "   chegando ao zero 'Game Over', boa sorte e se cuide.\n\t");
                     
-                    System.out.print("Digite seu nome:");
+                    System.out.print("\n\t Digite seu nome:");
                     nome = sc.nextLine();
                     nome = sc.nextLine();
                     
-                    System.out.println("\t"+ nome + " sua mãe pede para que você vá no mercado"
+                    System.out.println("\n\t "+ nome + " sua mãe pede para que você vá no mercado"
                             + "\n\t comprar papel hihgiênico e álcool em gel,"
                             + "\n\t o mercado mais próximo fica a duas quadras de distâncias."
                             + "\n\t Antes que você saia sua mãe diz para você não esquecer "
                             + "\n\t de pegar sua máscara, porém você não lembra onde a colocou."
                             + "\n\n\n\t Para lembrar onde você colcou a máscara terá que responder uma pergunta,"
                             + "\n\t respondendo corretamente você ganhará um bonus de 15 pontos de imunidade."
-                            + "\n\t -----------Pergunta----------"
+                            + "\n\n\t -----------Pergunta----------"
                             + "\n\t O número 350 em casa decimal convertido para binário é: "
                             + "\n\t a)1 0101 1011"
                             + "\n\t b)1 1111 0010"
                             + "\n\t c)1 0101 1110"
                             + "\n\t d)1 0110 0110");
-                    System.out.print("Resposta: ");
-                    respostaChar = sc.next().charAt(0);
+                    
+                    do {
+                        System.out.print("\n\t Resposta: ");
+                        respostaChar = sc.next().charAt(0);
+                        if (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D'){
+                        System.out.println("\n\t Digite uma opção válida.");
+                    }
+                    }while (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D');
                     
                     if (respostaChar == 'c' || respostaChar == 'C'){
                         imunidade += 15;
@@ -66,8 +76,8 @@ public class Rpg {
                         System.out.println("\n\t Imunidade total é de "+ imunidade);
                         
                     }else {
-                        System.out.println("\n\tResposta incorreta.");
-                        System.out.println("\n\tImunidade não ganhou bônus.");
+                        System.out.println("\n\t Resposta incorreta.");
+                        System.out.println("\n\t Imunidade não ganhou bônus.");
                     }
                     
                     do{
@@ -99,44 +109,119 @@ public class Rpg {
                                 + "\n\t e continua sua caminhada até o supermercado.");
                     }
                     
-                    System.out.println("\n\t Andando mais um pouco, a poucos metros do mercado,"
-                            + "\n\t você avista uma mulher acenando para você e te chamando: "
-                            + "'" +nome +"'"+ " , "+ "'"+ nome +"'"+ " até que você reconhece."
-                            + "\n\t É sua tia Gertrudes, que você não vê a mais de 5 anos, chegando mais perto,"
-                            + "\n\t você reapara que ela está sem máscara,e espirrando e tossindo muito,"
-                            + "\n\t além disso com a aparência de doente."
-                            + "\n\t Pois bem a sua única alternativa de evita-la é atravessar a rua e dar a volta "
-                            + "\n\t e entrar no merccado pela rua do lado, para isso você terá que contar"
-                            + "\n\t com a sua sorte, girando 6 vezez um dado de 6 lados,"
-                            + "\n\t o mínimo de pontos para ganhar o desafio é 18 pontos. ");
+                    
+                    System.out.println("\n\t Você então adentra no mercado pronto para fazer suas compras,"
+                            + "\n\t e procura uma cestinha para colocar os produtos que serão comprados,"
+                            + "\n\t tem um funcionário na frente da cestinha, higienizando a mão dos clientes"
+                            + "\n\t antes de eles pegarem a cestinha, chegando mais perto você o reconhce,"
+                            + "\n\t é o Jubileu seu amigo da faculdade, Jubileu então diz que só irá "
+                            + "\n\t passar álcool em gel na sua mão se você responder corretamente a pergunta."
+                            + "\n\n\t -----------Pergunta----------"
+                            + "\n\n\t A soma dos 2 número binários (110 1100) e (10 0111) é :"
+                            + "\n\t a) 0101 1011"
+                            + "\n\t b) 1111 0010"
+                            + "\n\t c) 0101 1110"
+                            + "\n\t d) 1001 0011‬");
                     do {
-                        System.out.print("\n\tPreparado(a)? S/N  ");
+                        System.out.print("\n\t Resposta: ");
+                        respostaChar = sc.next().charAt(0);
+                        if (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D'){
+                        System.out.println("\n\t Digite uma opção válida.");
+                    }
+                    }while (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D');
+                    
+                    if (respostaChar == 'd' || respostaChar == 'D'){
+                        System.out.println("\n\t Parabéns reposta correta.");
+                        System.out.println("\n\t Não perdeu imunidade.");
+                        System.out.println("\n\t Imunidade total é de "+ imunidade);
+                        
+                    }else {
+                        imunidade -= 20;
+                        System.out.println("\n\t Resposta incorreta.");
+                        System.out.println("\n\t Imunidade total é de "+ imunidade);
+                    }
+                    
+                    System.out.println("\n\t Você então vai a procura dos seus produtos,"
+                            + "\n\t com eles na cestinha você caminha para o caixa,"
+                            + "\n\t você começa a colocar as compras na esteira, a mulher pergunta "
+                            + "\n\t se você deseja CPF na na nota, você prefere que não,"
+                            + "\n\t para evitar tocar na máquina de cartão, onde muitos passam a mão,"
+                            + "\n\t porém o seu pagamento será realizado com cartão, por sorte"
+                            + "\n\t você tem um cartão que é por proximidade, sem a necessidade de senhas,"
+                            + "\n\t porém a operadora de caixa lhe informa que a funcção por proximidade "
+                            + "\n\t vem apresentando alguns defeitos, então você contará "
+                            + "\n\t com a sorte, terá que girar 6 vezez um dado de 6 lados, "
+                            + "\n\t a pontuação minima será de 18 pontos, boa sorte!! ");
+                    
+                    do {
+                        System.out.print("\n\t Preparado(a)? S/N  ");
                         respostaChar = sc.next().charAt(0);
                         if (respostaChar != 's' && respostaChar != 's' && respostaChar != 'n' && respostaChar != 'N'){
                         System.out.println("\n\t Digite 's' ou 'S' para sim ");
                         System.out.println("\n\t Digite 'n' ou 'N' para não.");
                     }
-                    }while (respostaChar != 's' && respostaChar != 's' && respostaChar != 'n' && respostaChar != 'N' );
-                    System.out.println("\n\tGirando dado...");
+                    }while (respostaChar != 's' && respostaChar != 's' );
+                    
                     
                     for (int i = 1; i < 7; i++) {
                     int num = new Random().nextInt(5) + 1;
-                    System.out.println(i + "ª jogada:" +num);
-                    totalDado += num;
+                    System.out.println("\n\t Girando dado...");
+                    System.out.println("\n\t" + i + "ª jogada:" +num);
+                    totalDado2 += num;
                     }
-                    System.out.println("\n\t Total de pontos foi: " + totalDado);
+                    System.out.println("\n\t Total de pontos foi: " + totalDado2);
                     
-                    if (totalDado < 18){
-                        imunidade -= 20;
+                    if (totalDado2 < 18){
+                        imunidade -= 30;
                         System.out.println("\n\t Você não atingiu a pontuação minima,"
                                 + "\n\t com isso você perdeu 30 pontos de imunidade.");
                         System.out.println("\n\t Imunidade total: "+ imunidade);
                     }else{
                         System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
                                 + "\n\t pode continuar sua jornada tranquilo");
+                        System.out.println("\n\t Imunidade total: "+ imunidade);
                     }
                     
+                    System.out.println("\n\t Saindo do mercado, uma quadra depois,"
+                            + "\n\t você avista uma mulher acenando para você e te chamando: "
+                            + "'" +nome +"'"+ " , "+ "'"+ nome +"'"+ " até que você reconhece."
+                            + "\n\t É sua tia Gertrudes, que você não vê a mais de 5 anos, chegando mais perto,"
+                            + "\n\t você reapara que ela está sem máscara, espirrando e tossindo muito,"
+                            + "\n\t além disso com a aparência de doente."
+                            + "\n\t Pois bem a sua única alternativa de evita-la é atravessar a rua e dar a volta "
+                            + "\n\t e seguir para casa tranquilamente, para isso você terá que contar"
+                            + "\n\t com a sua sorte novamente, girando o dado, porém o minimo para"
+                            + "\n\t ganhar o desafio agora é 23 pontos, boa sorte!! ");
+                    do {
+                        System.out.print("\n\t Preparado(a)? S/N  ");
+                        respostaChar = sc.next().charAt(0);
+                        if (respostaChar != 's' && respostaChar != 's' && respostaChar != 'n' && respostaChar != 'N'){
+                        System.out.println("\n\t Digite 's' ou 'S' para sim ");
+                        System.out.println("\n\t Digite 'n' ou 'N' para não.");
+                    }
+                    }while (respostaChar != 's' && respostaChar != 's' );
                     
+                    
+                    for (int i = 1; i < 7; i++) {
+                    int num = new Random().nextInt(5) + 1;
+                    System.out.println("\n\t Girando dado...");
+                    System.out.println("\n\t" + i + "ª jogada:" +num);
+                    totalDado += num;
+                    }
+                    System.out.println("\n\t Total de pontos foi: " + totalDado);
+                    
+                    if (totalDado < 23){
+                        imunidade -= 30;
+                        System.out.println("\n\t Você não atingiu a pontuação minima,"
+                                + "\n\t com isso você perdeu 30 pontos de imunidade.");
+                        System.out.println("\n\t Imunidade total: "+ imunidade);
+                    }else{
+                        System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
+                                + "\n\t pode continuar sua jornada tranquilo");
+                        System.out.println("\n\t Imunidade total: "+ imunidade);
+                    }
                     
                     
                     gameOver = "s";
@@ -147,6 +232,6 @@ public class Rpg {
 			System.out.println("Opção Inválida!");
                         break;
                 }
-        }while (imunidade > 0 && gameOver != "s" );
+        }while (imunidade > 0 && !"s".equals(gameOver) );
     }
 }
