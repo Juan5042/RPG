@@ -15,12 +15,13 @@ import java.util.Scanner;
 public class Rpg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcao, imunidade = 100,totalDado = 0, totalDado2= 0;
-        String nome,gameOver = "n";
+        int opcao, imunidade = 100 ,totalDado = 0, totalDado2= 0, gameOver = 0;
+        String nome;
         char respostaChar;
         
         
         do {
+            
         System.out.println("\n\t Rpg Compra sem Corona Vírus");
         System.out.println("\n\n\t   ### Menu do jogo: ###");
 		System.out.println("\n\t===========================");
@@ -121,7 +122,7 @@ public class Rpg {
                             + "\n\t a) 0101 1011"
                             + "\n\t b) 1111 0010"
                             + "\n\t c) 0101 1110"
-                            + "\n\t d) 1001 0011‬");
+                            + "\n\t d) 1001 0011");
                     do {
                         System.out.print("\n\t Resposta: ");
                         respostaChar = sc.next().charAt(0);
@@ -216,6 +217,9 @@ public class Rpg {
                         imunidade -= 30;
                         System.out.println("\n\t Você não atingiu a pontuação minima,"
                                 + "\n\t com isso você perdeu 30 pontos de imunidade.");
+                        if (imunidade < 0){
+                        imunidade = 0;
+                        }
                         System.out.println("\n\t Imunidade total: "+ imunidade);
                     }else{
                         System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
@@ -224,14 +228,58 @@ public class Rpg {
                     }
                     
                     
-                    gameOver = "s";
-			break;
+                    System.out.println("\n\t Você anda mais uma quadra e chega em sua casa, o próximo"
+                            + "\n\t desafio se na vida real afetaria não só você, mas todos que moram com você,"
+                            + "\n\t porém como aqui é só um jogo, somente você sofrerá as consequências."
+                            + "\n\n\t Você ficou muito tempo fora de casa, exposto de várias formas,"
+                            + "\n\t para se proeger completamente do vírus, o recomendado é que você,"
+                            + "\n\t ao entrar em casa higienize tudo o que trouxe da rua, retire a "
+                            + "\n\t roupa utilizada e a ponha pra lavar, para que você faça esse procedimento"
+                            + "\n\t você terá que passar pelo ultimo desafio, mais uma pergunta relacionada"
+                            + "\n\t a matéria escolhida, valendo 20 pontos de imunidade preste"
+                            + "\n\t bastante atenção e responda com cuidado sem pressa, boa sorte!!"
+                            + "\n\n\t -----------Pergunta----------"
+                            + "\n\n\t Dado o número 2020 em decimal, selecione qual opção contém ele convertido"
+                            + "\n\t em Binário, Octal e Hexadecimal? Boa Sorte!!!! ");
+                            System.out.print("\n\t a) 011111100100 3744 7E4 "); 
+                            System.out.print("\n\t b) 011011100100 3774 8E4 "); 
+                            System.out.print("\n\t c) 011111100100 5633 4C4 "); 
+                            System.out.print("\n\t d) 000100110100 3744 7E4 ");
+                    
+                    do {
+                        System.out.print("\n\t Resposta: ");
+                        respostaChar = sc.next().charAt(0);
+                        if (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D'){
+                        System.out.println("\n\t Digite uma opção válida.");
+                    }
+                    }while (respostaChar != 'a' && respostaChar != 'A' && respostaChar != 'b' && respostaChar != 'B' 
+                                && respostaChar != 'c' && respostaChar != 'C' && respostaChar != 'd' && respostaChar != 'D');
+                    
+                    if (respostaChar == 'a' || respostaChar == 'A'){
+                        System.out.println("\n\t Parabéns reposta correta.");
+                        System.out.println("\n\t Não perdeu imunidade.");
+                        System.out.println("\n\t Imunidade total é de "+ imunidade);
+                        
+                    }else {
+                        imunidade -= 20;
+                        System.out.println("\n\t Resposta incorreta.");
+                        if (imunidade < 0){
+                        imunidade = 0;
+                        }
+                        System.out.println("\n\t Imunidade total é de "+ imunidade);
+                    }
+                    
+  
 		case 2:     
+                    imunidade = 0;
 			break;
 		default:                    
-			System.out.println("Opção Inválida!");
+			System.out.println("\n\t Opção Inválida!");
                         break;
                 }
-        }while (imunidade > 0 && !"s".equals(gameOver) );
+        }while (imunidade != 0 );
+        
     }
+
 }
