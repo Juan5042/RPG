@@ -17,9 +17,9 @@ public class Rpg {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcao, imunidade = 100, totalDado = 0, totalDado2 = 0;
-        String nome;
-        char respostaChar;
+        int imunidade = 100, totalDado = 0, totalDado2 = 0;
+        String nome, opcao;
+        char respostaChar, opcao2;
         boolean gameOver = false;
 
         do {
@@ -31,9 +31,9 @@ public class Rpg {
                     System.out.println("\t                      |     2 - Sair         |");
                       System.out.print("\n\t                     Opcão desejada: ");
 
-            opcao = sc.nextInt();
+            opcao = sc.nextLine();
             switch (opcao) {
-                case 1:
+                case "1":
 
                 System.out.println("\n\n\t               |     Bem vindo ao RPG Compra sem Corona Vírus  |");
                 System.out.println(" \n\t|              Nesse jogo você terá a missão de ir ao mercado                    |"
@@ -46,7 +46,7 @@ public class Rpg {
  
                     do {
                         System.out.print("\n\t Digite seu nome:");
-                        nome = sc.nextLine();
+                       
                         nome = sc.nextLine();
                         System.out.print("\n\t Confirme seu nome será " + nome + " mesmo? S/N  ");
                         respostaChar = sc.next().charAt(0);
@@ -178,7 +178,7 @@ public class Rpg {
                     for (int i = 1; i < 7; i++) {
                         int num = new Random().nextInt(5) + 1;
                         System.out.println("\n\t Girando dado...");
-                        System.out.println("\n\t" + i + "ª jogada:" + num);
+                        System.out.println("\n\t " + i + "ª jogada:" + num);
                         totalDado2 += num;
                     }
                     System.out.println("\n\t Total de pontos foi: " + totalDado2);
@@ -187,6 +187,10 @@ public class Rpg {
                         imunidade -= 30;
                         System.out.println("\n\t Você não atingiu a pontuação minima,"
                                 + "\n\t com isso você perdeu 30 pontos de imunidade.");
+                        if (imunidade < 0) {
+                            imunidade = 0;
+                            gameOver = true;
+                        }
                         System.out.println("\n\t Imunidade total: " + imunidade);
                     } else {
                         System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
@@ -216,7 +220,7 @@ public class Rpg {
                     for (int i = 1; i < 7; i++) {
                         int num = new Random().nextInt(5) + 1;
                         System.out.println("\n\t Girando dado...");
-                        System.out.println("\n\t" + i + "ª jogada:" + num);
+                        System.out.println("\n\t " + i + "ª jogada:" + num);
                         totalDado += num;
                     }
                     System.out.println("\n\t Total de pontos foi: " + totalDado);
@@ -258,16 +262,21 @@ public class Rpg {
                     pergunta.add(2, "011111100100 5633 4C4");
                     pergunta.add(3, "000100110100 3744 7E4");
                     boolean resposta = false;
+                    
                     do {
-
+                        
+                        Collections.shuffle(pergunta);
+                        Collections.shuffle(pergunta);
+                        Collections.shuffle(pergunta);
+                        
                         System.out.println("\n\t A- " + pergunta.get(0));
                         System.out.println("\n\t B- " + pergunta.get(1));
                         System.out.println("\n\t C- " + pergunta.get(2));
                         System.out.println("\n\t D- " + pergunta.get(3));
                         System.out.print("\n\t Resposta: ");
-                        opcao = sc.next().charAt(0);
+                        opcao2 = sc.next().charAt(0);
 
-                        switch (opcao) {
+                        switch (opcao2) {
                             case 'a':
                             case 'A':
                                 if (pergunta.get(0).equals("\n\t 011111100100 3744 7E4")) {
@@ -354,7 +363,7 @@ public class Rpg {
 
                     } while (resposta == false);
 
-                case 2:
+                case "2":
                     gameOver = true;
                     break;
                 default:
