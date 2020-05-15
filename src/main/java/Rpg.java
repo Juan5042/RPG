@@ -57,7 +57,7 @@ public class Rpg {
                     } while (respostaChar != 's' && respostaChar != 's');
 
                     System.out.println("\n\t " + nome + " sua mãe pede para que você vá no mercado"
-                            + "\n\t comprar papel hihgiênico e álcool em gel,"
+                            + "\n\t  comprar papel hihgiênico e álcool em gel,"
                             + "\n\t o mercado mais próximo fica a duas quadras de distâncias."
                             + "\n\t Antes que você saia sua mãe diz para você não esquecer "
                             + "\n\t de pegar sua máscara, porém você não lembra onde a colocou."
