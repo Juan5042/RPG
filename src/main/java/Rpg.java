@@ -24,9 +24,9 @@ public class Rpg {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int  imunidade = 100, totalDado = 0, totalDado2 = 0;
-        String nome, opcao;
-        char respostaChar, opcao2;
+        int opcao, imunidade = 100, totalDado = 0, totalDado2 = 0;
+        String nome, opcao2;
+        char respostaChar;
         boolean gameOver = false;
 
         do {
@@ -38,8 +38,8 @@ public class Rpg {
                     System.out.println("\t                      |     2 - Sair         |");
                       System.out.print("\n\t                          Opcão desejada: ");
 
-            opcao = sc.nextLine();
-            switch (opcao) {
+            opcao2 = sc.nextLine();
+            switch (opcao2) {
                 case "1":
 
                 System.out.println("\n\n\t                     Bem vindo ao RPG Compra sem Coronavírus!  \n\t");
@@ -74,8 +74,7 @@ public class Rpg {
                             System.out.println("\n\t Digite 's' ou 'S' para sim ");
                             System.out.println("\n\t Digite 'n' ou 'N' para não.");
                         }
-                        sc.nextLine();
-                    } while (respostaChar != 's' && respostaChar != 'S' );
+                    } while (respostaChar != 's' && respostaChar != 's');
 
                 System.out.println("              -------------------------------------------------------------------------------------\n\t"
                             + "     |           "+ nome + ", sua mãe pede para que você vá até o supermercado                 \n\t"
@@ -216,25 +215,25 @@ public class Rpg {
 
                     if (totalDado2 < 18) {
                         imunidade -= 30;
-                        if (imunidade < 0) {
-                            imunidade = 0;
-                            System.out.println("Sua imunidade chegou a Zero");
-                            System.out.println("Você está infectado com o corona vírus");
-                            System.out.println("Game Over!");
-                            gameOver = true;
+                         if (imunidade < 0) {
                             
-                        }
+                            imunidade = 0;
+                            
+                            
+                         }
                         System.out.println("\n\t Você não atingiu a pontuação minima,"
                                          + "\n\t Com isso você perde 30 pontos de imunidade");
                         System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
                         
                         
-                    }                 
-                                
-                    else {
+                    } else  {
                         System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
                                          + "\n\t     pode continuar sua jornada!!!");
                         System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
+                    }
+                    
+                    if (imunidade == 0){
+                    break;
                     }
 
                     System.out.println("              ---------------------------------------------------------------------------------------- \n\t"
@@ -273,18 +272,18 @@ public class Rpg {
 
                     if (totalDado < 23) {
                         imunidade -= 30;
+                        if (imunidade < 0) {
+                           
+                            imunidade = 0;
+                            
+                        }  
+                        
                         System.out.println("\n\t Você não atingiu a pontuação minima,"
                                 + "\n\t Com isso você perde 30 pontos de imunidade");
-                        if (imunidade < 0) {
-                            imunidade = 0;
-                            System.out.println("Sua imunidade chegou a Zero");
-                            System.out.println("Você está infectado com o corona vírus");
-                            System.out.println("Game Over!");
-                            gameOver = true;
-                            
-                        }
+                        
 
                         System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
+                        
                         
                     } else {
                         System.out.println("\n\t Parabéns você atingiu a pontuação minima,"
@@ -292,21 +291,24 @@ public class Rpg {
                         System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
                     }
                     
+                    if (imunidade == 0){
+                    break;
+                    }
                       
 
                     System.out.println("              ------------------------------------------------------------------------------------------------ \n\t"
-                            + "     |                               Você chega em sua casa!!                                         |\n\t"
-                            + "     |       Depois de tanta exposição, para se proteger completamente do vírus,                      |\n\t"
-                            + "     | o recomendado é que você, ao entrar em casa higienize tudo o que trouxe da rua,                |\n\t"
-                            + "     |                 retire a roupa utilizada e coloque para lavar,                                 |\n\t"
-                            + "     | para fazer isso terá que passar pelo ultimo desafio, valendo 20 pontos de imunidade            |\n\t"
-                            + "     |            preste bastante atenção e responda com cuidado sem pressa,                          |\n\t"
-                            + "     |                                      boa sorte!!                                               |\n\t"
+                            + "     |                                    Você chega em sua casa!!                                |\n\t"
+                            + "     |            Depois de tanta exposição, para se proteger completamente do vírus,             |\n\t"
+                            + "     |      o recomendado é que você, ao entrar em casa higienize tudo o que trouxe da rua,       |\n\t"
+                            + "     |                      retire a roupa utilizada e coloque para lavar,                        |\n\t"
+                            + "     |      para fazer isso terá que passar pelo ultimo desafio, valendo 20 pontos de imunidade   |\n\t"
+                            + "     |                 preste bastante atenção e responda com cuidado sem pressa,                 |\n\t"
+                            + "     |                                           boa sorte!!                                      |\n\t"
                             + "      --------------------------------------------Pergunta-------------------------------------------- \n\t"
                             +   "\n\n\t Dado o número 2020 em decimal, selecione qual opção contém ele convertido"
                             + "\n\t em Binário, Octal e Hexadecimal? Exatamente nessa sequência. Boa Sorte!!!! ");
                     System.out.println();
-                    ArrayList<String> pergunta = new ArrayList<String>();
+                    ArrayList<String> pergunta = new ArrayList<>();
 
                     pergunta.add(0, "011111100100 3744 7E4");
                     pergunta.add(1, "011011100100 3774 8E4");
@@ -314,18 +316,21 @@ public class Rpg {
                     pergunta.add(3, "000100110100 3744 7E4");
                     boolean resposta = false;
                     do {
-
+                        Collections.shuffle(pergunta);
+                        Collections.shuffle(pergunta);
+                        Collections.shuffle(pergunta);
+                        
                         System.out.println("\n\t A- " + pergunta.get(0));
                         System.out.println("\n\t B- " + pergunta.get(1));
                         System.out.println("\n\t C- " + pergunta.get(2));
                         System.out.println("\n\t D- " + pergunta.get(3));
                         System.out.print("\n\t Resposta: ");
-                        opcao2 = sc.next().charAt(0);
+                        opcao = sc.next().charAt(0);
 
-                        switch (opcao2) {
+                        switch (opcao) {
                             case 'a':
                             case 'A':
-                                if (pergunta.get(0).equals("\n\t 011111100100 3744 7E4")) {
+                                if (pergunta.get(0).equals("011111100100 3744 7E4")) {
                                     System.out.println("\n\t Resposta correta.");
                                     System.out.println("\n\t Não perdeu imunidade.");
                                                                         
@@ -339,19 +344,16 @@ public class Rpg {
                                                                    
                                     if (imunidade < 0) {
                                         imunidade = 0;
-                                        System.out.println("\n\t Sua imunidade chegou a Zero");
-                                        System.out.println("\n\t Você está infectado com o corona vírus");
-                                        System.out.println("\n\t Game Over!");
-                                        gameOver = true;
                                         
                                     }
                                     System.out.print("\n\t A sua imunidade total é de " + imunidade + "\n\t");
                                     resposta = true;
+                                    
                                 }
                                 break;
                             case 'b':
                             case 'B':
-                                if (pergunta.get(1).equals("\n\t 011111100100 3744 7E4")) {
+                                if (pergunta.get(1).equals("011111100100 3744 7E4")) {
                                      System.out.println("\n\t Resposta correta.");
                                     System.out.println("\n\t Não perdeu imunidade.");
                                    System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -361,10 +363,6 @@ public class Rpg {
                                     System.out.println("\n\t Resposta incorreta.");
                                     if (imunidade < 0) {
                                         imunidade = 0;
-                                        System.out.println("\n\t Sua imunidade chegou a Zero");
-                                        System.out.println("\n\t Você está infectado com o corona vírus");
-                                        System.out.println("\n\t Game Over!");
-                                        gameOver = true;
                                         
                                     }
                                      System.out.println("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -373,7 +371,7 @@ public class Rpg {
                                 break;
                             case 'c':
                             case 'C':
-                                if (pergunta.get(2).equals("\n\t 011111100100 3744 7E4")) {
+                                if (pergunta.get(2).equals("011111100100 3744 7E4")) {
                                      System.out.println("\n\t Resposta correta.");
                                     System.out.println("\n\t Não perdeu imunidade.");
                                     System.out.print("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -383,10 +381,6 @@ public class Rpg {
                                     System.out.println("\n\t Resposta incorreta.");
                                     if (imunidade < 0) {
                                         imunidade = 0;
-                                        System.out.println("\n\t Sua imunidade chegou a Zero");
-                                        System.out.println("\n\t Você está infectado com o corona vírus");
-                                        System.out.println("\n\t Game Over!");
-                                        gameOver = true;
                                         
                                     }
                                      System.out.print("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -395,7 +389,7 @@ public class Rpg {
                                 break;
                             case 'd':
                             case 'D':
-                                if (pergunta.get(3).equals("\n\t 011111100100 3744 7E4")) {
+                                if (pergunta.get(3).equals("011111100100 3744 7E4")) {
                                      System.out.println("\n\t Resposta correta.");
                                     System.out.println("\n\t Não perdeu imunidade.");
                                      System.out.print("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -406,10 +400,6 @@ public class Rpg {
                                     
                                     if (imunidade < 0) {
                                         imunidade = 0;
-                                        System.out.println("\n\t Sua imunidade chegou a Zero");
-                                        System.out.println("\n\t Você está infectado com o corona vírus");
-                                        System.out.println("\n\t Game Over!");
-                                        gameOver = true;
                                         
                                     }
                                     System.out.print("\n\t A sua imunidade total é de " + imunidade + "\n\t");
@@ -428,11 +418,6 @@ public class Rpg {
                         Collections.shuffle(pergunta);
 
                     } while (resposta == false);
-                    
-                    if (imunidade > 0){
-                        System.out.println("\n\t Parabéns você efetuou suas compras,"
-                                + "\n\t com total segurança, e voltou pra casa ileso!!");
-                    }
 
                 case "2":
                      gameOver = true;
@@ -440,17 +425,25 @@ public class Rpg {
                                        
                     break;
                     
-                                
+                 
                             
-             
+                            
+                            
                             
                 default:
                     System.out.println("\n\t Opção Inválida!");
                     break;
             }
-        } while (imunidade >0 && !gameOver);
-        
-        
+        } while (imunidade != 0 && !gameOver);
+            
+        if (imunidade == 0) {
+                            System.out.println("\n\t Você está infectado com o corona vírus."
+                                    + "\n\t -------------Game Over-------------");                            
+                        }
+        else{
+            System.out.println("\n\t Parabéns você fez suas compras com segurança"
+                    + "\n\t e voltou pra casa ileso, obrigado por jogar!!!!");
+        }
     }
 
 }
